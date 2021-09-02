@@ -1,0 +1,5 @@
+# copy and paste the below into your Chrome desktop shortcut "Target" field after chrome.exe:
+--proxy-server="socks5://localhost:9150" --host-resolverrules="MAP * ~NOTFOUND ,EXCLUDE localhost"
+
+# EXAMPLE
+# "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --proxy-server="socks5://localhost:9150" --host-resolverrules="MAP * ~NOTFOUND ,EXCLUDE localhost"
