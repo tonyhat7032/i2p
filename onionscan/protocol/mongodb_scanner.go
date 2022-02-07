@@ -2,9 +2,9 @@ package protocol
 
 import (
 	"fmt"
-	"github.com/s-rah/onionscan/config"
-	"github.com/s-rah/onionscan/report"
-	"github.com/s-rah/onionscan/utils"
+	"github.com/hunchly/funchly/onionscan/config"
+	"github.com/hunchly/funchly/onionscan/report"
+	"github.com/hunchly/funchly/onionscan/utils"
 )
 
 type MongoDBProtocolScanner struct {

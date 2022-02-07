@@ -3,7 +3,7 @@ package steps
 import (
 	"bytes"
 	"fmt"
-	"github.com/s-rah/onionscan/report"
+	"github.com/hunchly/funchly/onionscan/report"
 	"log"
 	"os"
 	"time"

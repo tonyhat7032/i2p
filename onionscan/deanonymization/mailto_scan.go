@@ -1,8 +1,8 @@
 package deanonymization
 
 import (
-	"github.com/s-rah/onionscan/config"
-	"github.com/s-rah/onionscan/report"
+	"github.com/hunchly/funchly/onionscan/config"
+	"github.com/hunchly/funchly/onionscan/report"
 	"strings"
 )
 

@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"crypto/sha256"
 	"errors"
-	"github.com/s-rah/onionscan/config"
-	"github.com/s-rah/onionscan/report"
+	"github.com/hunchly/funchly/onionscan/config"
+	"github.com/hunchly/funchly/onionscan/report"
 	"regexp"
 	"strings"
 )
