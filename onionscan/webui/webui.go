@@ -455,5 +455,5 @@ func (wui *WebUI) Listen(osc *config.OnionScanConfig, port int) {
 	http.Handle("/fonts/", http.StripPrefix("/fonts/", fs))
 
 	portstr := strconv.Itoa(port)
-	http.ListenAndServe("0.0.0.0:"+portstr, nil)
+	http.ListenAndServe("127.0.0.1:"+portstr, nil)
 }
