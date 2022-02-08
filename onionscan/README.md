@@ -1,7 +1,28 @@
+NOTE! This repo is a patched version of https://github.com/s-rah/onionscan and is designed to be run from a Google Cloud Shell.
+
+To get a free cloud shell account: https://console.cloud.google.com/getting-started?pli=1
+
+To open your Cloud shell you click here:
+
+
+
+From a Cloud shell $HOME directory:
+
+`go install github.com/hunchly/funchly/onionscan@latest`
+
+You now need a way to connect into Tor, and we can use Docker for this:
+
+`docker run -it -p 127.0.0.1:9050:9050 –-name torproxy -d dperson/torproxy`
+
+`docker inspect torproxy`
+
+Note the IP address listed in the IPAddress field and then run onionscan:
+
+`onionscan -torProxyAddress <IP ADDRESS OF DOCKER CONTAINER>:9050 -verbose <ONION ADDRESS>`
+
+You will need to re-run the Tor Proxy / docker commands above each time you drop into a cloud shell.
+
 # What is OnionScan?
-
-
-[![Build Status](https://travis-ci.org/hunchly/funchly/onionscan.svg?branch=onionscan-0.2)](https://travis-ci.org/hunchly/funchly/onionscan) [![Go Report Card](https://goreportcard.com/badge/github.com/hunchly/funchly/onionscan)](https://goreportcard.com/report/github.com/hunchly/funchly/onionscan)
 
 OnionScan is a free and open source tool for investigating the Dark Web. For all
 the amazing technological innovations in the anonymity and privacy space, there 
