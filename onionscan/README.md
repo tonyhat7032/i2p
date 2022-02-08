@@ -1,22 +1,29 @@
+
+# OnionScan on Google Cloud Shell
+
 NOTE! This repo is a patched version of https://github.com/s-rah/onionscan and is designed to be run from a Google Cloud Shell.
 
-To get a free cloud shell account: https://console.cloud.google.com/getting-started?pli=1
+1. To get a free cloud shell account: https://console.cloud.google.com/getting-started?pli=1
 
-To open your Cloud shell you click here:
+2. Open your Cloud shell you click here:
 
+![Screen Shot 2022-02-08 at 3 35 31 PM](https://user-images.githubusercontent.com/12143192/153079726-0332a2f7-8dae-4786-81c5-d70e71fc4dd1.png)
 
+3. From your Cloud Shell:
 
-From a Cloud shell $HOME directory:
+`wget https://raw.githubusercontent.com/hunchly/funchly/main/onionscan/cloudshell_install_onionscan.sh`
 
-`go install github.com/hunchly/funchly/onionscan@latest`
+`chmod +x cloudshell_install_onionscan.sh`
 
-You now need a way to connect into Tor, and we can use Docker for this:
+`./cloudshell_install_onionscan.sh`
+
+4. You now need a way to connect into Tor, and we can use Docker (already setup in Google Cloud Shell) for this:
 
 `docker run -it -p 127.0.0.1:9050:9050 –-name torproxy -d dperson/torproxy`
 
 `docker inspect torproxy`
 
-Note the IP address listed in the IPAddress field and then run onionscan:
+5. Note the IP address listed in the IPAddress field and then run onionscan:
 
 `onionscan -torProxyAddress <IP ADDRESS OF DOCKER CONTAINER>:9050 -verbose <ONION ADDRESS>`
 
@@ -24,97 +31,5 @@ You will need to re-run the Tor Proxy / docker commands above each time you drop
 
 # What is OnionScan?
 
-OnionScan is a free and open source tool for investigating the Dark Web. For all
-the amazing technological innovations in the anonymity and privacy space, there 
-is always a constant threat that has no effective technological patch - human
-error. <img src="templates/images/logo.png" title="OnionScan"/>
-
-Whether it is operational security leaks or software misconfiguration - most
-often times the attacks on anonymity don't come from breaking the underlying
-systems, but from ourselves.
-
-OnionScan has two primary goals:
-
-* We want to help **operators of hidden services find and fix operational security 
- issues with their services**. We want to help them detect misconfigurations and we
- want to inspire a new generation of anonymity engineering projects to help make
- the world a more private place.
-  
-* Secondly we want to help **researchers** and **investigators monitor and track  Dark Web sites**.
- In fact we want to make this as easy as possible. Not because we agree with the 
- goals and motives of every investigation force out there - most often we don't.
- But by making these kinds of investigations easy, we hope to create a powerful
- incentive for new anonymity technology (see goal #1)
-
-## Installing
-
-### A Note on Dependencies
-
-OnionScan requires either Go 1.6 or 1.7.
-
-In order to install OnionScan you will need the following dependencies not 
-provided by the core go standard library:
-
-* golang.org/x/net/proxy - For the Tor SOCKS Proxy connection.
-* golang.org/x/net/crypto - For PGP parsing
-* golang.org/x/net/html - For HTML parsing
-* github.com/rwcarlsen/goexif - For EXIF data extraction.
-* github.com/HouzuoGuo/tiedot/db - For crawl database.
-
-See <a href="https://github.com/hunchly/funchly/onionscan/wiki">the wiki</a> for guidance.
-
-### Grab with go get
-
-`go get github.com/hunchly/funchly/onionscan`
-
-### Compile/Run from git cloned source
-
-Once you have cloned the repository into somewhere that go can find it you can
-run `go install github.com/hunchly/funchly/onionscan` and then run the binary in `$GOPATH/bin/onionscan`.
-
-Alternatively, you can just do `go run github.com/hunchly/funchly/onionscan.go` to run without compiling.
-
-## Quick Start
-
-For a simple report detailing the high, medium and low risk areas found with a
-hidden service:
-
-`onionscan notarealhiddenservice.onion`
-
-The most interesting output comes from the verbose option:
-
-`onionscan --verbose notarealhiddenservice.onion`
-
-There is also a JSON output, if you want to integrate with another program or 
-application:
-
-`onionscan --jsonReport notarealhiddenservice.onion`
-
-If you would like to use a proxy server listening on something other that 
-`127.0.0.1:9050`, then you can use the --torProxyAddress flag:
-
-`onionscan --torProxyAddress=127.0.0.1:9150 notarealhiddenservice.onion`
-
-More detailed documentation on usage can be found in [doc](doc/README.md).
-
-## What is scanned for?
-
-A list of privacy and security problems which are detected by OnionScan can be
-found [here](doc/what-is-scanned-for.md).
-
-You can also directly configure the types of scanning that onionscan does using
-the scans parameter.
-
-`./bin/onionscan --scans web notarealhiddenservice.onion`
-
-## Running the OnionScan Correlation Lab
-
-If you are a researcher monitoring multiple sites you will definitely want to use
-the OnionScan Correlation Lab - a web interface hosted by OnionScan that allows
-you to discover, search and tag different identity correlations.
-
-You can find a full guide on the OnionScan correlation lab [here](doc/correlation-lab.md).
-
-# <img src="./doc/images/correlation-lab-main.png" title="The main OnionScan Correlation Lab Screen"/>
-
+Head to the original repo: https://github.com/s-rah/onionscan
 
