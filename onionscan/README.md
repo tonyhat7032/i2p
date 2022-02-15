@@ -48,7 +48,7 @@ Your browser should open the Onion Scan Correlation lab in a new tab:
 
 `email-address` - search for extracted email addresses.
 
-`server-status` - this will find hidden services potentially leaking the "real" IP address.
+`mod_status` - this will find hidden services potentially leaking the "real" IP address.
 
 Or you can search for the Title of a Hidden Service from the Hunchly Dark Web report.
 
