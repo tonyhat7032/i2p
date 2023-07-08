@@ -66,11 +66,6 @@ func main() {
 			log.Fatalf("You must set one of --simpleReport or --jsonReport or --jsonSimpleReport in scan mode")
 		}
 
-		proxyStatus := utils.CheckTorProxy(*torProxyAddress)
-		if proxyStatus != utils.ProxyStatusOK {
-			log.Fatalf("%s, is the --torProxyAddress setting correct?", utils.ProxyStatusMessage(proxyStatus))
-		}
-
 		onionsToScan := []string{}
 		if *list == "" {
 			onionsToScan = append(onionsToScan, flag.Args()[0])
