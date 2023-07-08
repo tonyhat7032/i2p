@@ -9,7 +9,7 @@ import (
 
 func GetNetworkConnection(onionService string, port int, proxyAddress string, timeout time.Duration) (net.Conn, error) {
 	portNumber := strconv.Itoa(port)
-	torDialer, err := proxy.SOCKS5("tcp", proxyAddress, nil, proxy.Direct)
+	torDialer, err := proxy.HTTP("tcp", proxyAddress, nil, proxy.Direct)
 	if err != nil {
 		return nil, err
 	}
